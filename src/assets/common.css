@@ -1,0 +1,7 @@
+/* App.css */
+.titlecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content vertically */
+    /* Add any other styling you need */
+  }
