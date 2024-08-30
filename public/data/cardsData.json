@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "icon": "PeopleOutlineOutlined",
+      "label1": "8482 COSTADJ-COST ADJUSTMENT COST ADJUSTMENT",
+      "label2": "0007 -Yale - West Chester",
+      "label3": "Netsuite",
+      "status": "active",
+      "middleText": "Connected",
+      "rightText": "Right Text"
+    },
+    {
+      "id": 2,
+      "icon": "PeopleOutlineOutlined",
+      "label1": "1872-M/C-VISA-AX",
+      "label2": "QB Desktop",
+      "label3": "ECOLOGY SOLAR",
+      "status": "inactive",
+      "middleText": "Middle Info",
+      "rightText": "Right Info"
+    },
+    {
+        "id": 1,
+        "icon": "PeopleOutlineOutlined",
+        "label1": "8482 COSTADJ-COST ADJUSTMENT COST ADJUSTMENT",
+        "label2": "0007 -Yale - West Chester",
+        "label3": "Netsuite",
+        "status": "active",
+        "middleText": "Connected",
+        "rightText": "Right Text"
+      },
+      {
+        "id": 2,
+        "icon": "PeopleOutlineOutlined",
+        "label1": "1872-M/C-VISA-AX",
+        "label2": "QB Desktop",
+        "label3": "ECOLOGY SOLAR",
+        "status": "inactive",
+        "middleText": "Middle Info",
+        "rightText": "Right Info"
+      },
+      {
+        "id": 1,
+        "icon": "PeopleOutlineOutlined",
+        "label1": "8482 COSTADJ-COST ADJUSTMENT COST ADJUSTMENT",
+        "label2": "0007 -Yale - West Chester",
+        "label3": "Netsuite",
+        "status": "active",
+        "middleText": "Connected",
+        "rightText": "Right Text"
+      },
+      {
+        "id": 2,
+        "icon": "PeopleOutlineOutlined",
+        "label1": "1872-M/C-VISA-AX",
+        "label2": "QB Desktop",
+        "label3": "ECOLOGY SOLAR",
+        "status": "inactive",
+        "middleText": "Middle Info",
+        "rightText": "Right Info"
+      },
+      {
+        "id": 1,
+        "icon": "PeopleOutlineOutlined",
+        "label1": "8482 COSTADJ-COST ADJUSTMENT COST ADJUSTMENT",
+        "label2": "0007 -Yale - West Chester",
+        "label3": "Netsuite",
+        "status": "active",
+        "middleText": "Connected",
+        "rightText": "Right Text"
+      },
+      {
+        "id": 2,
+        "icon": "PeopleOutlineOutlined",
+        "label1": "1872-M/C-VISA-AX",
+        "label2": "QB Desktop",
+        "label3": "ECOLOGY SOLAR",
+        "status": "inactive",
+        "middleText": "Middle Info",
+        "rightText": "Right Info"
+      }
+  ]
+  

@@ -4,7 +4,7 @@ import SearchContainer from './SearchContainer'
 import Tabs from './CustomerTabs'
 import CustomerTabs from './CustomerTabs'
 
-const Maincontent = () => {
+const Maincontent = ({Innercomponent}) => {
     return (
         <Box
             sx={{
@@ -14,15 +14,11 @@ const Maincontent = () => {
                 padding: '16px',
                   border:"1px solid gray",
                 borderRadius:"10px"
-
-
-
-
-
             }}
         >
-            <SearchContainer/>
-           <CustomerTabs sx={{mt:"20px"}}/>
+           { Innercomponent && <Innercomponent/>}
+            {/* <SearchContainer/>
+           <CustomerTabs sx={{mt:"20px"}}/> */}
           
         </Box>
     )

@@ -6,6 +6,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import SearchAndButtonComponent from './SearchAndButtonComponent';
+import ResponsiveCard from './ResponsiveCard';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,7 +63,17 @@ export default function CustomerTabs() {
       <Tab label="Pending Connections" />
     </Tabs>
     <Box sx={{ padding: 2 }}>
-      {value === 0 && <Box>Content for Tab 11</Box>}
+      {value === 0 && <Box>
+        
+        
+        
+        <SearchAndButtonComponent/>
+
+        <ResponsiveCard/>
+        
+        
+        
+        </Box>}
       {value === 1 && <Box>Content for Tab 22</Box>}
     </Box>
   </Box>
