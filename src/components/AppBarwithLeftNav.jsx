@@ -141,6 +141,12 @@ export default function AppBarwithLeftNav() {
   const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = React.useState(null);
 
+
+  const HandleTitleClick =() =>
+  {
+    navigate('/');
+  }
+
   const handleNavItemClick = (path) => {
     // Navigate to the selected path\
 
@@ -212,7 +218,7 @@ export default function AppBarwithLeftNav() {
           >
             <MenuIcon />
           </IconButton>
-          <div className="titlecontainer">
+          <div className="titlecontainer" sx={{cursor:"pointer"}} onClick={HandleTitleClick} >
             <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 'bold' }}>
               GL Integration
             </Typography>

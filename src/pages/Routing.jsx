@@ -8,6 +8,7 @@ import Customer from './Customer';
 import BIlls from './BIlls';
 import ProductCatalog from './ProductCatalog';
 import PurchaseOrders from './PurchaseOrders';
+import Homepage from './Homepage';
 
 const Routing = () => {
     return (
@@ -24,10 +25,12 @@ const Routing = () => {
 
 
                 <Route path="/" element={<MasterLayout />}>
-                    <Route index   path="customer"  element={<Customer />} />
-                    <Route path="bills"  element={<BIlls />} />
-                    <Route path="productcatalog"  element={<ProductCatalog />} />
-                    <Route path="purchaseorders"  element={<PurchaseOrders />} />
+
+                <Route index path="/" element={<Homepage />} />
+                    <Route index path="customer" element={<Customer />} />
+                    <Route path="bills" element={<BIlls />} />
+                    <Route path="productcatalog" element={<ProductCatalog />} />
+                    <Route path="purchaseorders" element={<PurchaseOrders />} />
 
 
                     {/* <Route path="about" element={<AboutPage />} />
