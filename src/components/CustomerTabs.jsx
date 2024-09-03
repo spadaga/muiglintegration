@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import SearchAndButtonComponent from './SearchAndButtonComponent';
 import ResponsiveCard from './ResponsiveCard';
+import LoadingOverlay from './LoadingOverlay ';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -44,13 +45,22 @@ function a11yProps(index) {
 
 export default function CustomerTabs() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    
+    setLoading(true);
+    setTimeout(() => {
+      setValue(newValue);
+      setLoading(false); // Remove this if you want the loading overlay to persist until the next page loads
+    }, 1500); // Simulate a delay; adjust this time as needed
+   
   };
 
   return (
+    <>
+    {loading && <LoadingOverlay />}
     <Box sx={{ width: '100%',  border:"1px solid gray",
       borderRadius:"6px",marginTop:"20px" }}>
     <Tabs
@@ -76,6 +86,6 @@ export default function CustomerTabs() {
         </Box>}
       {value === 1 && <Box>Content for Tab 22</Box>}
     </Box>
-  </Box>
+  </Box></>
   );
 }

@@ -47,7 +47,7 @@ const ResponsiveCard = () => {
     const navigate = useNavigate();
 
     const handleCardClick = () => {
-        navigate('/netsuite');
+        navigate('/managercustomer');
     };
     return (
 

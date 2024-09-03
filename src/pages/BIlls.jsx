@@ -4,6 +4,7 @@ import Maincontent from '../components/Maincontent'
 import Breadcrumbcomponent from '../components/Breadcrumbcomponent'
 import CustomerMainComponent from '../components/CustomerMainComponent'
 import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined";
+import BillsTable from '../components/BillsTable'
 
 const BIlls = () => {
   return (
@@ -11,7 +12,7 @@ const BIlls = () => {
 
       <Box sx={{ marginBottom: 2, width: "100%" }}>
         <Breadcrumbcomponent pagename="Bills" IconComponent={RequestQuoteOutlinedIcon}/>
-        <Maincontent Innercomponent={CustomerMainComponent} />
+        <Maincontent Innercomponent={BillsTable} />
       </Box>
 
     </Box>

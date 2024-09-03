@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from 'react';
 import { styled, useTheme } from "@mui/material/styles";
 import Tooltip from '@mui/material/Tooltip';
 import Box from "@mui/material/Box";
@@ -32,6 +32,8 @@ import InitialsAvatar from "./InitialsAvatar ";
 import { PeopleOutlineOutlined } from "@mui/icons-material";
 import BreadcrumbContainer from "./BreadcrumbContainer";
 import { Outlet, Link, useNavigate } from 'react-router-dom'; // Assuming you're using React Router for routing
+import LoadingOverlay from "./LoadingOverlay ";
+
 
 const drawerWidth = 240;
 
@@ -114,8 +116,10 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function AppBarwithLeftNav() {
+ 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(!open);
@@ -147,25 +151,36 @@ export default function AppBarwithLeftNav() {
     navigate('/');
   }
 
+  
+ 
+ 
   const handleNavItemClick = (path) => {
     // Navigate to the selected path\
+   
 
+    const handleNavigation = (path) => {
+        setLoading(true);
+        setTimeout(() => {
+          navigate(path);
+          setLoading(false); // Remove this if you want the loading overlay to persist until the next page loads
+        }, 1500); // Simulate a delay; adjust this time as needed
+      };
 
     setSelectedIndex(path);
 
     switch (path) {
 
       case 0:
-        navigate('/customer');
+        handleNavigation('customer');
         break;
       case 1:
-        navigate('/bills');
+        handleNavigation('bills');
         break;
       case 2:
-        navigate('/productcatalog');
+        handleNavigation('productcatalog');
         break;
       case 3:
-        navigate('/purchaseorders');
+        handleNavigation('purchaseorders');
         break;
     }
     // Additional logic can be added here
@@ -199,6 +214,8 @@ export default function AppBarwithLeftNav() {
 
   return (
 
+   <>
+    {loading && <LoadingOverlay />}
     <Box sx={{ display: "flex", width: "100%" }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
@@ -219,7 +236,7 @@ export default function AppBarwithLeftNav() {
             <MenuIcon />
           </IconButton>
           <div className="titlecontainer" sx={{cursor:"pointer"}} onClick={HandleTitleClick} >
-            <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h6" noWrap component="div" title='Click here to Home Page' sx={{ fontWeight: 'bold',cursor:"pointer" }}>
               GL Integration
             </Typography>
             {/* Subtext with smaller font size */}
@@ -372,6 +389,6 @@ export default function AppBarwithLeftNav() {
         </Box>
 
       </Box>
-    </Box>
+    </Box></>
   );
 }

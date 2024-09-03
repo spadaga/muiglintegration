@@ -1,6 +1,32 @@
 import React from 'react';
 import { Box, TextField, InputAdornment, Typography, Autocomplete } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { styled } from '@mui/system';
+import Popper from '@mui/material/Popper';
+
+const CustomPopper = styled(Popper)(({ theme }) => ({
+    zIndex: 99999, // Custom z-index value
+    '& .MuiAutocomplete-listbox': {
+      maxHeight: '200px',
+      overflowY: 'auto',
+    
+
+      scrollbarWidth: 'thin', // For Firefox
+      '&::-webkit-scrollbar': {
+        width: '8px',
+      },
+      '&::-webkit-scrollbar-track': {
+        background: '#f1f1f1',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        backgroundColor: '#888',
+        borderRadius: '4px',
+      },
+      '&::-webkit-scrollbar-thumb:hover': {
+        background: '#555',
+      },
+    },
+  }));
 
 const SearchBoxWithAutocomplete = ({ label, options }) => {
     console.log({options})
@@ -41,9 +67,11 @@ const SearchBoxWithAutocomplete = ({ label, options }) => {
                     sx={{ p: 1, flex: 1 }}
                     options={options}
           getOptionLabel={(option) => option.title}
+          PopperComponent={CustomPopper} // Use the custom Popper
                     renderInput={(params) => (
                         <TextField
                             {...params}
+                            
                             placeholder="Search..."
                             InputProps={{
                                 ...params.InputProps,

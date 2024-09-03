@@ -9,6 +9,7 @@ import BIlls from './BIlls';
 import ProductCatalog from './ProductCatalog';
 import PurchaseOrders from './PurchaseOrders';
 import Homepage from './Homepage';
+import ManageCustomers from './ManageCustomers';
 
 const Routing = () => {
     return (
@@ -31,6 +32,7 @@ const Routing = () => {
                     <Route path="bills" element={<BIlls />} />
                     <Route path="productcatalog" element={<ProductCatalog />} />
                     <Route path="purchaseorders" element={<PurchaseOrders />} />
+                    <Route path="managercustomer" element={<ManageCustomers />} />
 
 
                     {/* <Route path="about" element={<AboutPage />} />

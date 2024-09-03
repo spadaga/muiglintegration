@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Box, Typography, Card, CardContent, IconButton } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { styled } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
+import LoadingOverlay from './LoadingOverlay ';
 
 const cardsData = [
     { id: 1, number: '101', text: 'Customers', details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.', bgColor: '#e3f2fd' },
@@ -9,6 +11,9 @@ const cardsData = [
     { id: 3, number: '303', text: 'Product Catalog', details: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', bgColor: '#e8f5e9' },
     { id: 4, number: '404', text: 'Purchase Orders', details: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', bgColor: '#fff3e0' },
 ];
+
+
+
 
 const StyledCard = styled(Card)(({ theme }) => ({
     position: 'relative',
@@ -55,10 +60,13 @@ const FlipCardBack = styled(CardContent)({
     backfaceVisibility: 'hidden',
 });
 
-const CustomCard = ({ number, text, details, bgColor }) => {
+
+
+const CustomCard = ({ onCardClick, number, text, details, bgColor }) => {
+    
     return (
         <StyledCard>
-            <FlipCardInner className="flip-card-inner">
+            <FlipCardInner className="flip-card-inner" onClick={() => onCardClick()}>
                 <FlipCardFront sx={{
                     backgroundColor: bgColor,
                     backgroundImage: `linear-gradient(135deg, ${bgColor} 40%, rgba(255, 255, 255, 0.2) 100%)`,
@@ -126,18 +134,62 @@ const CustomCard = ({ number, text, details, bgColor }) => {
 };
 
 const HomeCards = () => {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    const handleNavigation = (path) => {
+        setLoading(true);
+        setTimeout(() => {
+          navigate(path);
+          setLoading(false); // Remove this if you want the loading overlay to persist until the next page loads
+        }, 1500); // Simulate a delay; adjust this time as needed
+      };
+
+
+    const handleClick = (e) => {
+        switch (e) {
+    
+            case 1:
+                {
+                    
+                    handleNavigation('customer');
+                    break;
+                }
+            case 2:
+                {
+                    handleNavigation('bills');
+                    break;
+                }
+            case 3:
+                {
+                    handleNavigation('productcatalog');
+                    break;
+                }
+            case 4:
+                {
+                    handleNavigation('purchaseorders');
+                    break;
+    
+                }
+        }
+    
+    };
     return (
+        <>
+        {loading && <LoadingOverlay />}
         <Box display="flex" flexWrap="wrap" justifyContent="left">
             {cardsData.map((card) => (
                 <CustomCard
+
                     key={card.id}
+                    onCardClick={() => handleClick(card.id)}
                     number={card.number}
                     text={card.text}
                     details={card.details}
                     bgColor={card.bgColor}
                 />
             ))}
-        </Box>
+        </Box></>
     );
 };
 
